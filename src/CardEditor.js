@@ -2,6 +2,10 @@ import React from 'react';
 import './CardEditor.css';
 
 class CardEditor extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { front: '', back: '' };
+    }
     render() {
         const cards = this.props.cards.map((card, index) => {
             return (
@@ -29,8 +33,8 @@ class CardEditor extends React.Component {
                     <tbody>{cards}</tbody>
                 </table>
                 <br/>
-                <input placeholder="Front of the card" />
-                <input placeholder="Back of the card" />
+                <input placeholder="Front of the card" value={this.state.front}/>
+                <input placeholder="Back of the card" value={this.state.back}/>
                 <button>Add card</button>
             </div>
         );
@@ -39,4 +43,4 @@ class CardEditor extends React.Component {
 
 export default CardEditor;
 
-// 10:30 of https://www.youtube.com/watch?v=vxBOxks1Wps
+// 11:30 of https://www.youtube.com/watch?v=vxBOxks1Wps

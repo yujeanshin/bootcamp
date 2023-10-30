@@ -6,6 +6,10 @@ class CardEditor extends React.Component {
         super(props);
         this.state = { front: '', back: '' };
     }
+
+    handleChange = event =>
+        this.setState({ [event.target.name]: event.target.value} );
+
     render() {
         const cards = this.props.cards.map((card, index) => {
             return (
@@ -33,8 +37,18 @@ class CardEditor extends React.Component {
                     <tbody>{cards}</tbody>
                 </table>
                 <br/>
-                <input placeholder="Front of the card" value={this.state.front}/>
-                <input placeholder="Back of the card" value={this.state.back}/>
+                <input
+                    name="front"
+                    onChange={this.handleChange}
+                    placeholder="Front of card"
+                    value={this.state.front}
+                />
+                <input
+                    name="back"
+                    onChange={this.handleChange}
+                    placeholder="Back of card"
+                    value={this.state.back}
+                />
                 <button>Add card</button>
             </div>
         );
@@ -42,5 +56,3 @@ class CardEditor extends React.Component {
 }
 
 export default CardEditor;
-
-// 11:30 of https://www.youtube.com/watch?v=vxBOxks1Wps

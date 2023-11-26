@@ -15,8 +15,10 @@ class App extends React.Component {
   }
   
   addCard = card => {
-    const cards = this.state.cards.slice().concat(card);
-    this.setState({ cards });
+    if (card.front.trim() !== "" && card.back.trim() !== "") {
+      const cards = this.state.cards.slice().concat(card);
+      this.setState({ cards });
+    }
   }
 
   deleteCard = index => {
@@ -38,7 +40,7 @@ class App extends React.Component {
         />
       );
     } else {
-      return <CardViewer switchMode={this.switchMode} />;
+      return <CardViewer switchMode={this.switchMode} cards={this.state.cards}/>;
     }
   }
 }

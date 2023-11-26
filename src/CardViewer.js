@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /*
     Specifications:
@@ -68,7 +69,7 @@ class CardViewer extends React.Component {
                     <button onClick={() => this.nextCard()}>Next</button>
                 </div>
                 <hr />
-                <button onClick={this.props.switchMode}>Go to card editor</button>
+                <Link to="/editor">Go to card editor</Link>
             </div>
         );
     }
